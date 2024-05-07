@@ -18,43 +18,47 @@ class Quadrilateral {
 protected:
 
 	float sides[4];
-	
-	void SetSides(float s1, float s2, float s3, float s4); 
 
+	void SetSides(float s1, float s2, float s3, float s4);
+
+	virtual float Area() = 0;
 
 public:
+
+
 
 	/// @name CONSTRUCTORS/DESTRUCTOR
 	/// @{
 	Quadrilateral();
-	Quadrilateral(const Quadrilateral &o);
+	Quadrilateral(const Quadrilateral& o);
 	virtual ~Quadrilateral();
 	/// @}
-	
+
 	/// @name OPERATORS
 	/// @{
-	Quadrilateral& operator=(const Quadrilateral &o); 
-	bool operator==(const Quadrilateral &o);
-	/// @}
-	
-	/// @name BASIC HANDLING
-	/// @{
-	void Init();												
-	void Init(const Quadrilateral &o);							
-	void Reset();												
+	Quadrilateral& operator=(const Quadrilateral& o);
+	bool operator==(const Quadrilateral& o);
 	/// @}
 
-			
+	/// @name BASIC HANDLING
+	/// @{
+	void Init();
+	void Init(const Quadrilateral& o);
+	void Reset();
+	/// @}
+
+
 	/// @name GETTERS
 	/// @{
+	float GetArea();
 	float GetPerimeter();
-	void GetSides(float &s0, float &s1, float &s2, float &s3);
+	void GetSides(float& s0, float& s1, float& s2, float& s3);
 	/// @}
-	
+
 	/// @name DEBUG and SERIALIZATION 
 	/// @{
-	void ErrorMessage(const char *string); 
-	void WarningMessage(const char *string);
+	void ErrorMessage(const char* string);
+	void WarningMessage(const char* string);
 	void Dump();
 	/// @}
 

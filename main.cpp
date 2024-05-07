@@ -3,74 +3,75 @@
 #include "CRectangle.h"
 #include "CRhombus.h"
 
-int main() {
 
-	Quadrilateral *A, *B, *C; 
-	float s1,s2,s3,s4;
+
+
+
+void Draw(Quadrilateral** list) {  //esperimenti extra
+
+	//cout << "draw" << endl;
+	cout<< list[4]->GetArea() << endl;
+	//cout << "fine draw" << endl;
+	//for (int i = 0; i < 5; i++) {
+		//cout << list[i]->GetArea() << endl;
+	//	list[i]->Dump();
+	//}
+}
+
+int main() {
 	
-	Rectangle rectA(10,5);
-	Rectangle rectB(3,7);
-	Rhombus rhoC(2,1);
+		Rectangle rectA(10,5);
+		Rectangle rectB(3,7);
+		Rhombus rhoC(2,1);
+		Rhombus rhoD(7,3);
+		Rectangle rectE(5,6);
+
+		Quadrilateral* list[5];
+
+		list[0]= &rectA;
+		list[1]= &rectB;
+		list[2]= &rhoC;
+		list[3]= &rhoD;
+		list[4]= &rectE;
+
+		Draw(list);
 	
+
+
+	Quadrilateral* A, * B, * C;
+	float s1, s2, s3, s4;
+
+//	Rectangle rectA(10, 5);
+//	Rectangle rectB(3, 7);
+//	Rhombus rhoC(2, 1);
+
 	A = &rectA;
 	B = &rectB;
 	C = &rhoC;
 
+
 	cout << endl;
 	cout << "**** quadrilateral A ****" << endl;
-	A->Dump(); 
+	A->Dump();
 	cout << "**** ***** ****" << endl;
 	cout << "**** quadrilateral B ****" << endl;
-	B->Dump(); 
+	B->Dump();
 	cout << "**** ***** ****" << endl;
 	cout << "**** quadrilateral C ****" << endl;
-	C->Dump(); 
+	C->Dump();
 	cout << "**** ***** ****" << endl;
-	
+
 	cout << endl;
 	cout << "**** rectangle A ****" << endl;
-	rectA.Dump(); 
+	rectA.Dump();
 	cout << "**** ***** ****" << endl;
 	cout << "**** rectangle B ****" << endl;
-	rectB.Dump(); 
+	rectB.Dump();
 	cout << "**** ***** ****" << endl;
-	cout << "**** rectangle C ****" << endl;
-	rhoC.Dump(); 
+	cout << "**** rhombus C ****" << endl;
+	rhoC.Dump();
 	cout << "**** ***** ****" << endl;
-	
-	rectA = rectB; 
-	
-	cout << endl;
-	cout << "**** quadrilateral A ****" << endl;
-	A->Dump(); 
-	cout << "**** ***** ****" << endl;
-	cout << "**** quadrilateral B ****" << endl;
-	B->Dump(); 
-	cout << "**** ***** ****" << endl;
-	
-	rectB.SetWidth(12);
-	cout << endl;
-	cout << "**** quadrilateral A ****" << endl;
-	A->Dump(); 
-	cout << "**** ***** ****" << endl;
-	cout << "**** quadrilateral B ****" << endl;
-	B->Dump(); 
-	cout << "**** ***** ****" << endl;
-	
-	B->GetSides(s1,s2,s3,s4);
-	cout << "rectangle B - sides:" << s1 << " " << s2 << " "<< s3 << " "<< s4 << endl; 
-	
-	C->GetSides(s1,s2,s3,s4);
-	cout << "rhombus C - sides:" << s1 << " " << s2 << " "<< s3 << " "<< s4 << endl;
-	
-	rhoC.SetDiagL(8);
-	C->GetSides(s1,s2,s3,s4);
-	cout << "rhombus C - sides:" << s1 << " " << s2 << " "<< s3 << " "<< s4 << endl;
 
-//	C->GetArea(); 
-	
-		
-	
 	return 0;
 
 }

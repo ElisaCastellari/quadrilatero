@@ -27,11 +27,11 @@ Rhombus::Rhombus(float dL, float dS) {
 	cout << "Rhombus - constructor" << endl;
 
 	if (dL <= 0. || dS <= 0.) {
-		WarningMessage("constructor: diagonals should be > 0"); 
-		SetDim(0,0);
+		WarningMessage("constructor: diagonals should be > 0");
+		SetDim(0, 0);
 	}
 	else
-		SetDim(dL,dS);
+		SetDim(dL, dS);
 
 }
 
@@ -45,57 +45,57 @@ Rhombus::~Rhombus() {
 
 /// @brief copy constructor 
 /// @param o reference to the object that should be copied 
-Rhombus::Rhombus(const Rhombus &r) { 
+Rhombus::Rhombus(const Rhombus& r) {
 
 	cout << "Rhombus - copy constructor" << endl;
 
 	Init(r);
-	
+
 }
 
 /// @brief overload of operator = 
 /// @param o reference to the object on the right side of the operator 
 /// @return reference to the object on the left side of the operator 
-Rhombus& Rhombus::operator=(const Rhombus &r) { 
+Rhombus& Rhombus::operator=(const Rhombus& r) {
 
 	cout << "Rhombus - operator =" << endl;
 
 	Init(r);
-	
+
 	return *this;
-	
+
 }
 
 /// @brief overload of operator == 
 /// @param r reference to the object on the right side of the operator 
 /// @return true if the two objects have the same width and the same length  
-bool Rhombus::operator==(const Rhombus &r) { 
+bool Rhombus::operator==(const Rhombus& r) {
 
 	if (r.diagL == diagL && r.diagS == diagS)
 		return true;
-		
+
 	return false;
 }
 
 /// @brief default initialization of the object
 void Rhombus::Init() {
-	SetDim(0,0);
-	
+	SetDim(0, 0);
+
 }
 
 
 /// @brief initialization of the object as a copy of an object 
 /// @param r reference to the object that should be copied 
-void Rhombus::Init(const Rhombus &r) {
+void Rhombus::Init(const Rhombus& r) {
 	Init();
-	SetDim(r.diagL,r.diagS);
+	SetDim(r.diagL, r.diagS);
 }
 
 /// @brief total reset of the object  
 void Rhombus::Reset() {
-	
-	SetDim(0,0);
-	
+
+	SetDim(0, 0);
+
 }
 
 
@@ -108,9 +108,9 @@ void Rhombus::SetDiagL(float d) {
 		return;
 	}
 
-	SetDim(d,diagS);
+	SetDim(d, diagS);
 
-} 
+}
 
 /// @brief set shorter diagonal of the object
 /// @param d diagonal 
@@ -121,7 +121,7 @@ void Rhombus::SetDiagS(float d) {
 		return;
 	}
 
-	SetDim(diagL,d);
+	SetDim(diagL, d);
 
 }
 
@@ -146,7 +146,7 @@ float Rhombus::GetDiagS() {
 /// @return side 
 float Rhombus::GetSide() {
 
-	return sqrt(diagL*diagL/4. + diagS*diagS/4.);
+	return sqrt(diagL * diagL / 4. + diagS * diagS / 4.);
 
 }
 
@@ -158,39 +158,39 @@ float Rhombus::GetSide() {
 void Rhombus::SetDim(float dL, float dS) {
 
 	float side = 0;
-	
+
 	diagL = dL;
-	diagS = dS;  
-	
+	diagS = dS;
+
 	side = GetSide();
-	Quadrilateral::SetSides(side,side,side,side);
-	
+	Quadrilateral::SetSides(side, side, side, side);
+
 	return;
 }
 
 /// @brief get the diagonals of the object
 /// @param dL larger diagonal 
 /// @param dS shorter diagonal
-void Rhombus::GetDim(float &dL, float &dS) {
+void Rhombus::GetDim(float& dL, float& dS) {
 
 	dL = diagL;
-	dS = diagS; 
-	
+	dS = diagS;
+
 	return;
 }
 
 /// @brief computes the area of the object
 /// @return the area 
-float Rhombus::GetArea() {
-	
-	return (diagL*diagS/2.);
+float Rhombus::Area() {
+	cout << "Classe derivata" << endl;
+	return (diagL * diagS / 2.);
 }
 
 
 /// @brief write an error message 
 /// @param string message to be printed
-void Rhombus::ErrorMessage(const char *string) {
-	
+void Rhombus::ErrorMessage(const char* string) {
+
 	cout << endl << "ERROR -- Rhombus --";
 	cout << string << endl;
 
@@ -198,8 +198,8 @@ void Rhombus::ErrorMessage(const char *string) {
 
 /// @brief write a warning message 
 /// @param string message to be printed
-void Rhombus::WarningMessage(const char *string) {
-	
+void Rhombus::WarningMessage(const char* string) {
+
 	cout << endl << "WARNING -- Rhombus --";
 	cout << string << endl;
 
@@ -209,15 +209,16 @@ void Rhombus::WarningMessage(const char *string) {
 /// @brief for debugging: all about the object
 void Rhombus::Dump() {
 	cout << endl;
-	cout << "---Rhombus---" << endl; 
+	cout << "-------- Rhombus --------" << endl;
 	cout << endl;
-	
+
 	cout << "Longer diagonal = " << diagL << endl;
-	cout << "Shorter diagonal = " << diagS << endl; 
+	cout << "Shorter diagonal = " << diagS << endl;
 	cout << "Side = " << GetSide() << endl;
-	
+	cout << "-------- ------------ --------" << endl;
+
 	Quadrilateral::Dump();
-	
+
 	cout << endl;
 
 }

@@ -26,11 +26,11 @@ Rectangle::Rectangle(float w, float h) {
 	cout << "Rectangle - constructor" << endl;
 
 	if (w <= 0. || h <= 0.) {
-		WarningMessage("constructor: width and height should be > 0"); 
-		SetDim(0,0);
+		WarningMessage("constructor: width and height should be > 0");
+		SetDim(0, 0);
 	}
 	else
-		SetDim(w,h);
+		SetDim(w, h);
 
 }
 
@@ -44,57 +44,57 @@ Rectangle::~Rectangle() {
 
 /// @brief copy constructor 
 /// @param o reference to the object that should be copied 
-Rectangle::Rectangle(const Rectangle &r) { 
+Rectangle::Rectangle(const Rectangle& r) {
 
 	cout << "Rectangle - copy constructor" << endl;
 
 	Init(r);
-	
+
 }
 
 /// @brief overload of operator = 
 /// @param o reference to the object on the right side of the operator 
 /// @return reference to the object on the left side of the operator 
-Rectangle& Rectangle::operator=(const Rectangle &r) { 
+Rectangle& Rectangle::operator=(const Rectangle& r) {
 
 	cout << "Rectangle - operator =" << endl;
 
 	Init(r);
-	
+
 	return *this;
-	
+
 }
 
 /// @brief overload of operator == 
 /// @param r reference to the object on the right side of the operator 
 /// @return true if the two objects have the same width and the same length  
-bool Rectangle::operator==(const Rectangle &r) { 
+bool Rectangle::operator==(const Rectangle& r) {
 
 	if (r.width == width && r.height == height)
 		return true;
-		
+
 	return false;
 }
 
 /// @brief default initialization of the object
 void Rectangle::Init() {
-	SetDim(0,0);
-	
+	SetDim(0, 0);
+
 }
 
 
 /// @brief initialization of the object as a copy of an object 
 /// @param r reference to the object that should be copied 
-void Rectangle::Init(const Rectangle &r) {
+void Rectangle::Init(const Rectangle& r) {
 	Init();
-	SetDim(r.width,r.height);
+	SetDim(r.width, r.height);
 }
 
 /// @brief total reset of the object  
 void Rectangle::Reset() {
-	
-	SetDim(0,0);
-	
+
+	SetDim(0, 0);
+
 }
 
 
@@ -107,7 +107,7 @@ void Rectangle::SetWidth(float w) {
 		return;
 	}
 
-	SetDim(w,height);
+	SetDim(w, height);
 
 }
 
@@ -120,7 +120,7 @@ void Rectangle::SetHeight(float h) {
 		return;
 	}
 
-	SetDim(width,h);
+	SetDim(width, h);
 
 }
 
@@ -147,35 +147,35 @@ float Rectangle::GetHeight() {
 void Rectangle::SetDim(float w, float h) {
 
 	width = w;
-	height = h;  
-	Quadrilateral::SetSides(w,h,w,h);
-	
+	height = h;
+	Quadrilateral::SetSides(w, h, w, h);
+
 	return;
 }
 
 /// @brief get width and length of the object
 /// @param w width 
 /// @param h height
-void Rectangle::GetDim(float &w, float &h) {
+void Rectangle::GetDim(float& w, float& h) {
 
 	w = width;
-	h = height; 
-	
+	h = height;
+
 	return;
 }
 
 /// @brief computes the area of the object
 /// @return the area 
-float Rectangle::GetArea() {
-	
-	return (width*height);
+float Rectangle::Area() {
+	cout << "Classe derivata" << endl;
+	return (width * height);
 }
 
 
 /// @brief write an error message 
 /// @param string message to be printed
-void Rectangle::ErrorMessage(const char *string) {
-	
+void Rectangle::ErrorMessage(const char* string) {
+
 	cout << endl << "ERROR -- Rectangle --";
 	cout << string << endl;
 
@@ -183,8 +183,8 @@ void Rectangle::ErrorMessage(const char *string) {
 
 /// @brief write a warning message 
 /// @param string message to be printed
-void Rectangle::WarningMessage(const char *string) {
-	
+void Rectangle::WarningMessage(const char* string) {
+
 	cout << endl << "WARNING -- Rectangle --";
 	cout << string << endl;
 
@@ -194,14 +194,15 @@ void Rectangle::WarningMessage(const char *string) {
 /// @brief for debugging: all about the object
 void Rectangle::Dump() {
 	cout << endl;
-	cout << "---Rectangle---" << endl; 
+	cout << "-------- Rectangle --------" << endl;
 	cout << endl;
-	
+
 	cout << "Width = " << width << endl;
 	cout << "Heigth = " << height << endl;
-	
+	cout << "-------- ------------ -----------" << endl;
+
 	Quadrilateral::Dump();
-	
+
 	cout << endl;
 
 }
